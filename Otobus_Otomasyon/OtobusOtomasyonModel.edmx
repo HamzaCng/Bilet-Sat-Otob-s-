@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Otobus_OtomasyonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="IlTablosu">
+          <Key>
+            <PropertyRef Name="ilID" />
+          </Key>
+          <Property Name="ilID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ilAd" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SeferBilgileri">
+          <Key>
+            <PropertyRef Name="seferID" />
+          </Key>
+          <Property Name="seferID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="plakaNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="yolcuID" Type="int" />
+          <Property Name="marka" Type="nvarchar" MaxLength="50" />
+          <Property Name="kalkisNoktasi" Type="nvarchar" MaxLength="50" />
+          <Property Name="varisNoktasi" Type="nvarchar" MaxLength="50" />
+          <Property Name="biletFiyati" Type="money" />
+          <Property Name="koltukNo" Type="int" />
+          <Property Name="gidisTarihi" Type="date" />
+        </EntityType>
+        <EntityType Name="TarifeTablosu">
+          <Key>
+            <PropertyRef Name="tarifeID" />
+          </Key>
+          <Property Name="tarifeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kalkisNoktasi" Type="nvarchar" MaxLength="50" />
+          <Property Name="varisNoktasi" Type="nvarchar" MaxLength="50" />
+          <Property Name="biletFiyati" Type="money" />
+          <Property Name="plakaNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="marka" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="YolcuListesi">
+          <Key>
+            <PropertyRef Name="yolcuID" />
+          </Key>
+          <Property Name="yolcuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ad" Type="nvarchar" MaxLength="50" />
+          <Property Name="soyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="cinsiyet" Type="nvarchar" MaxLength="50" />
+          <Property Name="tcNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="telNo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="Otobus_OtomasyonModelStoreContainer">
+          <EntitySet Name="IlTablosu" EntityType="Self.IlTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeferBilgileri" EntityType="Self.SeferBilgileri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TarifeTablosu" EntityType="Self.TarifeTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YolcuListesi" EntityType="Self.YolcuListesi" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Otobus_OtomasyonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="IlTablosu">
+          <Key>
+            <PropertyRef Name="ilID" />
+          </Key>
+          <Property Name="ilID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ilAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SeferBilgileri">
+          <Key>
+            <PropertyRef Name="seferID" />
+          </Key>
+          <Property Name="seferID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="plakaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="yolcuID" Type="Int32" />
+          <Property Name="marka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kalkisNoktasi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="varisNoktasi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="biletFiyati" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="koltukNo" Type="Int32" />
+          <Property Name="gidisTarihi" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="TarifeTablosu">
+          <Key>
+            <PropertyRef Name="tarifeID" />
+          </Key>
+          <Property Name="tarifeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kalkisNoktasi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="varisNoktasi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="biletFiyati" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="plakaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="marka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="YolcuListesi">
+          <Key>
+            <PropertyRef Name="yolcuID" />
+          </Key>
+          <Property Name="yolcuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cinsiyet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tcNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="telNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Otobus_OtomasyonEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="IlTablosu" EntityType="Self.IlTablosu" />
+          <EntitySet Name="SeferBilgileri" EntityType="Self.SeferBilgileri" />
+          <EntitySet Name="TarifeTablosu" EntityType="Self.TarifeTablosu" />
+          <EntitySet Name="YolcuListesi" EntityType="Self.YolcuListesi" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Otobus_OtomasyonModelStoreContainer" CdmEntityContainer="Otobus_OtomasyonEntities">
+          <EntitySetMapping Name="IlTablosu">
+            <EntityTypeMapping TypeName="Otobus_OtomasyonModel.IlTablosu">
+              <MappingFragment StoreEntitySet="IlTablosu">
+                <ScalarProperty Name="ilID" ColumnName="ilID" />
+                <ScalarProperty Name="ilAd" ColumnName="ilAd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeferBilgileri">
+            <EntityTypeMapping TypeName="Otobus_OtomasyonModel.SeferBilgileri">
+              <MappingFragment StoreEntitySet="SeferBilgileri">
+                <ScalarProperty Name="seferID" ColumnName="seferID" />
+                <ScalarProperty Name="plakaNo" ColumnName="plakaNo" />
+                <ScalarProperty Name="yolcuID" ColumnName="yolcuID" />
+                <ScalarProperty Name="marka" ColumnName="marka" />
+                <ScalarProperty Name="kalkisNoktasi" ColumnName="kalkisNoktasi" />
+                <ScalarProperty Name="varisNoktasi" ColumnName="varisNoktasi" />
+                <ScalarProperty Name="biletFiyati" ColumnName="biletFiyati" />
+                <ScalarProperty Name="koltukNo" ColumnName="koltukNo" />
+                <ScalarProperty Name="gidisTarihi" ColumnName="gidisTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TarifeTablosu">
+            <EntityTypeMapping TypeName="Otobus_OtomasyonModel.TarifeTablosu">
+              <MappingFragment StoreEntitySet="TarifeTablosu">
+                <ScalarProperty Name="tarifeID" ColumnName="tarifeID" />
+                <ScalarProperty Name="kalkisNoktasi" ColumnName="kalkisNoktasi" />
+                <ScalarProperty Name="varisNoktasi" ColumnName="varisNoktasi" />
+                <ScalarProperty Name="biletFiyati" ColumnName="biletFiyati" />
+                <ScalarProperty Name="plakaNo" ColumnName="plakaNo" />
+                <ScalarProperty Name="marka" ColumnName="marka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YolcuListesi">
+            <EntityTypeMapping TypeName="Otobus_OtomasyonModel.YolcuListesi">
+              <MappingFragment StoreEntitySet="YolcuListesi">
+                <ScalarProperty Name="yolcuID" ColumnName="yolcuID" />
+                <ScalarProperty Name="ad" ColumnName="ad" />
+                <ScalarProperty Name="soyad" ColumnName="soyad" />
+                <ScalarProperty Name="cinsiyet" ColumnName="cinsiyet" />
+                <ScalarProperty Name="tcNo" ColumnName="tcNo" />
+                <ScalarProperty Name="telNo" ColumnName="telNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram DiagramId="9c60e22614e944c48f3915ae00403a6c" Name="Diagram1">
+        <EntityTypeShape EntityType="Otobus_OtomasyonModel.IlTablosu" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Otobus_OtomasyonModel.SeferBilgileri" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Otobus_OtomasyonModel.TarifeTablosu" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Otobus_OtomasyonModel.YolcuListesi" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
